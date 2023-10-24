@@ -2,10 +2,13 @@ package com.hack.hacksa
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hack.hacksa.Data.jobsAvailable
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        jobsAvailable.
     }
 }
