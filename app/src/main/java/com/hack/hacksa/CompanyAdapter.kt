@@ -30,6 +30,8 @@ class CompanyAdapter(private val mList: List<Company>) : RecyclerView.Adapter<Co
         holder.name.text = ItemsViewModel.name
         holder.description.text = ItemsViewModel.description
         holder.ranking.text = ItemsViewModel.ranking.toString()
+        holder.hours.text = ItemsViewModel.hours.toString()
+        holder.pay.text = ItemsViewModel.pay
     }
 
     // return the number of the items in the list
@@ -39,6 +41,8 @@ class CompanyAdapter(private val mList: List<Company>) : RecyclerView.Adapter<Co
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+        val hours: TextView = itemView.findViewById(R.id.hours)
+        val pay: TextView = itemView.findViewById(R.id.pay)
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
         val name: TextView = itemView.findViewById(R.id.name)
         val ranking: TextView = itemView.findViewById(R.id.ranking)
