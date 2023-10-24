@@ -29,7 +29,7 @@ class CompanyAdapter(private val mList: List<Company>) : RecyclerView.Adapter<Co
         // sets the text to the textview from our itemHolder class
         holder.name.text = ItemsViewModel.name
         holder.description.text = ItemsViewModel.description
-        holder.ranking.text = ItemsViewModel.ranking
+        holder.ranking.text = ItemsViewModel.ranking.toString()
     }
 
     // return the number of the items in the list
