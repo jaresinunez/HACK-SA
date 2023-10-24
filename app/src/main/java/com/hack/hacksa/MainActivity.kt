@@ -1,14 +1,26 @@
 package com.hack.hacksa
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 
 class MainActivity : AppCompatActivity() {
     var companyNames = mutableListOf("Taco Cabana", "Applebee's", "Chili's", "Cheddars", "Dutchbros", "Whataburger", "McDonald's")
     var companyRankings = mutableListOf(4.4, 4.2, 4.5, 4.8, 4.9, 3.8, 4.2)
     var companyRoleDescriptions = mutableListOf("Dishwasher", "Hostess", "Bartender", "Hostess", "Linebusser", "Drive-Thru Attendant", "Cashier")
+    var companyHours = mutableListOf(5.0, 6.5, 4.0, 8.5, 3.75, 5.45, 6.0)
+    var companyPay = mutableListOf("$12/hr", "$11/hr", "$10.50/hr", "11/hr", "$8.50/hr", "$11.50/hr", "$12.50/hr")
+    var drawables = intArrayOf(
+        R.drawable.taco_cabana,
+        R.drawable.applebees,
+        R.drawable.chilies,
+        R.drawable.cheddars,
+        R.drawable.dutch_bros,
+        R.drawable.whataburger,
+        R.drawable.mcdonalds
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,22 +30,11 @@ class MainActivity : AppCompatActivity() {
         val data = ArrayList<Company>()
 
         for (i in 0..6) {
-            data.add(Company(R.drawable.ic_launcher_foreground, companyNames[i], companyRankings[i], companyRoleDescriptions[i]))
+            data.add(Company(drawables[i], companyNames[i], companyRankings[i], companyRoleDescriptions[i], companyHours[i] as Double, companyPay[i]))
         }
 
         val adapter = CompanyAdapter(data)
         recyclerView.adapter = adapter
 
-    }
-    fun getAvailableJobs(): List<Company> {
-        return mutableListOf(
-            Company(123, "Taco Cabana", 4.4, "Dishwasher"),
-            Company(123, "Applebee's", 4.2, "Hostess"),
-            Company(123, "Chili's", 4.5, "Bartender"),
-            Company(123, "Cheddars", 4.8, "Hostess"),
-            Company(123, "Dutchbros", 4.9, "Line busser"),
-            Company(123, "Whataburger", 3.8, "Drive-Thru Attendant"),
-            Company(123, "McDonalds", 4.2, "Cashier")
-        )
     }
 }
